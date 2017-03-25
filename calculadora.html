@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <link href="normal.css" rel="stylesheet" type="text/css" media="screen">
+    <meta charset="UTF-8">
+    <title>CORE2016 P3</title>
+    <script type="text/javascript">
+        var valor = 0;
+        var operacion;
+        function pantalla() {
+            $("#pantalla").val("");
+        }
+        function suma() {
+            if (operacion === "resta") {
+                valor = valor - (parseFloat($("#pantalla").val()));
+            } else {
+                valor = valor + parseFloat($("#pantalla").val());
+            }
+            operacion = "suma";
+        }
+        function resta() {
+            if (operacion === "resta") {
+                valor = valor - (parseFloat($("#pantalla").val()));
+            } else {
+                valor = valor + parseFloat($("#pantalla").val());
+            }
+            operacion = "resta";
+        }
+        function igual() {
+            if (operacion === "resta") {
+                valor = valor - (parseFloat($("#pantalla").val()));
+            } else {
+                valor = valor + parseFloat($("#pantalla").val());
+            }
+            fin()
+        }
+        function cuadrado() {
+            valor = parseFloat($("#pantalla").val()) * parseFloat($("#pantalla").val());
+            fin()
+        }
+        function inverso() {
+            valor = 1 / parseFloat($("#pantalla").val());
+            fin()
+        }
+        function raiz() {
+            valor = Math.sqrt(parseFloat($("#pantalla").val()));
+            fin()
+        }
+        function pentera() {
+            valor = Math.abs(parseFloat($("#pantalla").val()));
+            fin()
+        }
+        function potencia2() {
+            valor = Math.pow(2, parseFloat($("#pantalla").val()));
+            fin()
+        }
+        function factorial() {
+            if (parseFloat($("#pantalla").val()) < 0) {
+                valor=NaN;
+            } else {
+                valor = 1;
+                for (var i = 1; i <= parseFloat($("#pantalla").val()); i++) {
+                    valor *= i;
+                }
+            }
+            fin()
+        }
+        function limpiar() {
+            $("#pantalla").val("");
+            valor = 0;
+            operacion = undefined;
+        }
+        function fin() {
+            if (isNaN(valor)) {
+                $("#pantalla").val("Error");
+            } else {
+                $("#pantalla").val(valor);
+            }
+            valor = 0;
+            operacion = undefined;
+        }
+    </script>
+</head>
+<body>
+<header>Buenos dias, bienvenido a la calculadora de Javier Chamorro
+    <a href="mailto:javier.chamorroa@alumnos.upm.es">javier.chamorroa@alumnos.upm.es</a>
+</header>
+<div id="main">
+    <p>Número:</p>
+    <input id="pantalla" onclick="pantalla()">
+    <p> </p>
+    <br>
+    <button id="suma" onclick="suma()">+</button>
+    <button id="resta" onclick="resta()">-</button>
+    <button id="igual" onclick="igual()">=</button>
+    <button id="cuadrado" onclick="cuadrado()">x²</button>
+    <button id="inverso" onclick="inverso()">1/x</button>
+    <button id="raiz" onclick="raiz()">sqrt(x)</button>
+    <button id="pentera" onclick="pentera()">parte_entera(x)</button>
+    <button id="potencia2" onclick="potencia2()">2<sup>x</sup></button>
+    <button id="factorial" onclick="factorial()">x!</button>
+    <button id="limpiar" onclick="limpiar()">Limpiar</button>
+
+
+</div>
+</body>
+</html>
